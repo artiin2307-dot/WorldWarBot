@@ -1,1 +1,14 @@
-"8621149298:AAF7kLA9_Wb2YW05fmheiwp7-PbJePBXTYg"
+import os
+import telebot
+
+TOKEN = os.getenv("BOT_TOKEN")
+
+bot = telebot.TeleBot(TOKEN)
+
+@bot.message_handler(commands=["start"])
+def start(message):
+    bot.reply_to(message, "سلام، بات روشن است")
+
+print("Bot Started")
+
+bot.infinity_polling()
